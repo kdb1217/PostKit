@@ -62,7 +62,7 @@ struct CaptionResultView: View {
                 case .first:
                     CustomAlertMessageDouble(alertTopTitle: "재생성 할까요?", alertContent: "2 크레딧이 사용돼요 \n남은 크레딧 : \(coinManager.coin)", topBtnLabel: "확인", bottomBtnLabel: "취소", topAction: { if coinManager.coin > CoinManager.minimalCoin {
                         pathManager.path.append(.Loading)
-                        Mixpanel.mainInstance().track(event: "Regenerate", properties: ["State": "Normal"])
+                        trackingRegenerate()
                         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.8) {
                             regenerateAnswer()
                         }
@@ -133,6 +133,7 @@ extension CaptionResultView {
                                 .frame(width: 18, height: 18)
                                 .foregroundColor(.gray4)
                                 .onTapGesture {
+                                    trackingEdit()
                                     self.showModal = true
                                 }
                         }.sheet(isPresented: self.$showModal, content: {
