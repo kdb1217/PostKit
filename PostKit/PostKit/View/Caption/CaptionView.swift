@@ -91,7 +91,7 @@ extension CaptionView {
                             Mixpanel.mainInstance().track(event: "Generate Caption", properties: ["Include Keywords" : false, "Include Image" : true])
                         }
                         else {
-                            Mixpanel.mainInstance().track(event: "Generate Caption", properties: ["Include Keywords" : true, "Include Image" : true])
+                            Mixpanel.mainInstance().track(event: "Generate Caption", properties: ["Include Keywords" : true, "Include Image" : true, "Selected Keywords" : "\(captionViewModel.selectedKeywords)"])
                         }
                     }
                     else {
@@ -99,7 +99,7 @@ extension CaptionView {
                             captionViewModel.createPrompt(storeName: storeModel.storeName, storeInfo: categoryName.korCategoryName, toneInfo: storeModel.tone, segmentInfo: categoryName.picekrList)
                             captionViewModel.sendMessage()
                         }
-                    Mixpanel.mainInstance().track(event: "Generate Caption", properties: ["Include Keywords" : true, "Include Image" : false])
+                    Mixpanel.mainInstance().track(event: "Generate Caption", properties: ["Include Keywords" : true, "Include Image" : false, "Selected Keywords" : "\(captionViewModel.selectedKeywords)"])
                     }
                 }
             }
