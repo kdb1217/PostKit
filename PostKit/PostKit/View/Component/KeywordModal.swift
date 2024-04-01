@@ -153,12 +153,7 @@ extension KeywordModal {
                 if selectModalKeywords.count >= maxCount {
                     isShowingToast = true
                 }
-                if modalType == .cafe {
-                    Mixpanel.mainInstance().track(event: "커스텀 키워드 입력")
-                }
-                else if modalType == .browShop {
-                    Mixpanel.mainInstance().track(event: "커스텀 키워드 입력")
-                }
+                Mixpanel.mainInstance().track(event: "Add Keyword", properties: ["Keyword Type" : "Custom"])
             }
             
             if !selectModalKeywords.isEmpty {
@@ -257,6 +252,7 @@ extension KeywordModal {
     private func segementationElement(point: String) -> some View {
         Button {
             if selectModalKeywords.count < maxCount {
+                Mixpanel.mainInstance().track(event: "Add Keyword", properties: ["Keyword Type" : "Recommended"])
                 if firstSegmentPoint.contains(point) {
                     firstSegementSelected.append(point)
                     firstSegmentPoint.removeAll(where: { $0 == point})

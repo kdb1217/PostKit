@@ -18,7 +18,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     private var mixpanelKey: String?
 
     func getRandomKey() {
-        let chatGptAPIKey = firebaseManager.getDoucument(apiName: "mixpanel") { [weak self] (key) in
+        // 개발용 "mixpanelDev"
+        // 배포용 "mixpanelRelease"
+        let chatGptAPIKey = firebaseManager.getDoucument(apiName: "mixpanelDev") { [weak self] (key) in
             self?.mixpanelKey = key
             print("앱 시작")
             print(self?.mixpanelKey ?? "키 값 오류")
@@ -26,7 +28,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             DispatchQueue.main.async {
                 Mixpanel.initialize(token: self?.mixpanelKey ?? "믹스패널 키 오류", trackAutomaticEvents: true)
                 Mixpanel.mainInstance().identify(distinctId: UUID().uuidString)
-                Mixpanel.mainInstance().track(event: "앱 실행")
+                Mixpanel.mainInstance().track(event: "App Open")
             }
         }
     }
