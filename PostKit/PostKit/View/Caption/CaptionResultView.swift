@@ -218,7 +218,7 @@ struct ToastModifier: ViewModifier {
                         Spacer()
                     }
                     .padding(.horizontal, 24)
-                    .padding(.vertical, 30)
+                    .padding(.vertical, 20)
                     .frame(maxWidth: .infinity)
                     .background(.gray5)
                     .cornerRadius(radius1)
@@ -226,7 +226,7 @@ struct ToastModifier: ViewModifier {
                 }
                 .onAppear {
                     //Max animation time 1.0
-                    DispatchQueue.main.asyncAfter(deadline: .now()+min(duration, 1.0)){
+                    DispatchQueue.main.asyncAfter(deadline: min(.now() + duration,.now() + 1.0)){
                         withAnimation(.easeOut(duration: 0.1)) {
                             isShowing = false
                         }
