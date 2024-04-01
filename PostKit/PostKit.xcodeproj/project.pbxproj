@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0ABD25E32BB4320900AC70BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0ABD25E22BB4320900AC70BA /* GoogleService-Info.plist */; };
 		133232FE2B6121C800A9A5CA /* GoodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133232FD2B6121C800A9A5CA /* GoodsView.swift */; };
 		133233022B6A720200A9A5CA /* GoodsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133233012B6A720200A9A5CA /* GoodsViewModel.swift */; };
 		1336DE5B2AF8D63B000A6D9A /* MainHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336DE5A2AF8D63B000A6D9A /* MainHistoryView.swift */; };
@@ -118,6 +117,7 @@
 		A1A4FAF92AF6245400514053 /* iCloudProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A4FAF82AF6245400514053 /* iCloudProtocol.swift */; };
 		A1A4FAFB2AF6295700514053 /* CloudKitUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A4FAFA2AF6295700514053 /* CloudKitUserModel.swift */; };
 		A1A4FAFE2AF8FC2300514053 /* LoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A4FAFD2AF8FC2300514053 /* LoadingViewModel.swift */; };
+		A1A843652BBAF1D0007392A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1A843642BBAF1D0007392A0 /* GoogleService-Info.plist */; };
 		A1B75ACE2AEFB3EF00DFD343 /* CaptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B75ACD2AEFB3EF00DFD343 /* CaptionModel.swift */; };
 		A1B75AD02AEFDF9200DFD343 /* HashtagProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B75ACF2AEFDF9200DFD343 /* HashtagProtocol.swift */; };
 		A1B75AD22AEFE24100DFD343 /* HashtagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B75AD12AEFE24100DFD343 /* HashtagModel.swift */; };
@@ -144,7 +144,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0ABD25E22BB4320900AC70BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		133232FD2B6121C800A9A5CA /* GoodsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsView.swift; sourceTree = "<group>"; };
 		133233012B6A720200A9A5CA /* GoodsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsViewModel.swift; sourceTree = "<group>"; };
 		1336DE5A2AF8D63B000A6D9A /* MainHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHistoryView.swift; sourceTree = "<group>"; };
@@ -232,6 +231,7 @@
 		A1A4FAFA2AF6295700514053 /* CloudKitUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitUserModel.swift; sourceTree = "<group>"; };
 		A1A4FAFC2AF62EFA00514053 /* PostKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PostKit.entitlements; sourceTree = "<group>"; };
 		A1A4FAFD2AF8FC2300514053 /* LoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewModel.swift; sourceTree = "<group>"; };
+		A1A843642BBAF1D0007392A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/PostKit/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A1B75ACD2AEFB3EF00DFD343 /* CaptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionModel.swift; sourceTree = "<group>"; };
 		A1B75ACF2AEFDF9200DFD343 /* HashtagProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashtagProtocol.swift; sourceTree = "<group>"; };
 		A1B75AD12AEFE24100DFD343 /* HashtagModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashtagModel.swift; sourceTree = "<group>"; };
@@ -320,7 +320,7 @@
 		13C295A42AD55F2100A2DE7F = {
 			isa = PBXGroup;
 			children = (
-				0ABD25E22BB4320900AC70BA /* GoogleService-Info.plist */,
+				A1A843642BBAF1D0007392A0 /* GoogleService-Info.plist */,
 				13C295AF2AD55F2100A2DE7F /* PostKit */,
 				13C295AE2AD55F2100A2DE7F /* Products */,
 				D2EED1AA8014945B0B79CFF3 /* Pods */,
@@ -682,12 +682,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1A843652BBAF1D0007392A0 /* GoogleService-Info.plist in Resources */,
 				13C295F52AD7136E00A2DE7F /* Pretendard-Bold.otf in Resources */,
 				13C295B82AD55F2200A2DE7F /* Preview Assets.xcassets in Resources */,
 				13C295F22AD7136E00A2DE7F /* Pretendard-Light.otf in Resources */,
 				13C295F42AD7136E00A2DE7F /* Pretendard-ExtraLight.otf in Resources */,
 				13C295F02AD7136E00A2DE7F /* Pretendard-Regular.otf in Resources */,
-				0ABD25E32BB4320900AC70BA /* GoogleService-Info.plist in Resources */,
 				13C295F32AD7136E00A2DE7F /* Pretendard-Thin.otf in Resources */,
 				13C295B52AD55F2200A2DE7F /* Assets.xcassets in Resources */,
 				13C295EF2AD7136E00A2DE7F /* Pretendard-SemiBold.otf in Resources */,
@@ -975,7 +975,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PostKit/Preview Content\"";
-				DEVELOPMENT_TEAM = 3VW5XC5A7B;
+				DEVELOPMENT_TEAM = F5LF3NUCU2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PostKit/Info.plist;
@@ -1018,7 +1018,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PostKit/Preview Content\"";
-				DEVELOPMENT_TEAM = 3VW5XC5A7B;
+				DEVELOPMENT_TEAM = F5LF3NUCU2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PostKit/Info.plist;
