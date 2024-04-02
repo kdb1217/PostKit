@@ -9,9 +9,8 @@ import Foundation
 
 
 public enum StackViewType {
-    case Menu
-    case Daily
-    case Goods
+    case Cafe
+    case BrowShop
     case Fashion
     case Hair
     case SettingHome
@@ -24,7 +23,7 @@ public enum StackViewType {
     case ErrorNetwork
     case ErrorResultFailed
     case Hashtag
-    case BrowShop
+
 }
 
 class PathManager: ObservableObject {
