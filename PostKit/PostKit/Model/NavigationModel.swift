@@ -23,7 +23,6 @@ public enum StackViewType {
     case ErrorNetwork
     case ErrorResultFailed
     case Hashtag
-
 }
 
 class PathManager: ObservableObject {
