@@ -25,7 +25,6 @@ extension CaptionResultView {
     
     // MARK: - Chat GPT API에 재생성 요청
     func regenerateAnswer() {
-        let apiManager = APIManager()
         if coinManager.checkCoin() {
             Task {
                 if captionViewModel.isImage() {

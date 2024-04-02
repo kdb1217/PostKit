@@ -100,7 +100,7 @@ public enum categoryType: String, CaseIterable{
 
 //MARK: 이미지 리소스 필요
 public var CaptionCtgModel: [(imageName: String, name: String, destination: categoryType, path: StackViewType)] = [
-    ("Cafe", "카페", categoryType.cafe, .Daily),
+    ("Cafe", "카페", categoryType.cafe, .Cafe),
     ("Fashion", "패션", categoryType.fashion, .Fashion),
     ("Hair", "헤어", categoryType.hair, .Hair),
     ("Brow", "브로우샵", categoryType.browShop, .BrowShop)

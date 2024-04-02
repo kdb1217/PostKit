@@ -80,12 +80,8 @@ struct MainView: View {
                     .accentColor(.main)
                     .navigationDestination(for: StackViewType.self) { stackViewType in
                         switch stackViewType {
-                        case .Menu:
-                            MenuView(storeModel: storeModel)
-                        case .Daily:
+                        case .Cafe:
                             CaptionView(storeModel: storeModel, categoryName: categoryType.cafe)
-                        case .Goods:
-                            GoodsView(storeModel: storeModel)
                         case .Fashion:
                             CaptionView(storeModel: storeModel, categoryName: categoryType.fashion)
                         case .Hair:
