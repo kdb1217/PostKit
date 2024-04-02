@@ -54,8 +54,19 @@ struct CaptionResultView: View {
                     //Caption이 생성되면 바로 CoreData에 저장
                     //수정을 위해 UUID를 저장
                     copyId = saveCaptionResult(category: captionViewModel.categoryName, date: convertDayTime(time: Date()), result: captionViewModel.promptAnswer,like: likeCopy)
-                    loadingModel.isCaptionGenerate = true
                     trackingResult()
+                    if viewModel.imageURL != "" && !(viewModel.customKeywords.isEmpty && viewModel.recommendKeywords.isEmpty) {
+                        let data = CaptionInfo(customKeywords: captionViewModel.customKeyword, recommendKeywords: captionViewModel.firstSegmentSelected + captionViewModel.secondSegmentSelected + captionViewModel.thirdSegmentSelected, captionResult: captionViewModel.promptAnswer, isIncludeImage: true)
+                        firebaseManager.updateCaptionResult(cpationType: .both, Data: data.data)
+                    }
+                    else if viewModel.imageURL != "" {
+                        let data = ImageInfo(captionResult: captionViewModel.promptAnswer)
+                        firebaseManager.updateCaptionResult(cpationType: .imageOnly, Data: data.data)
+                    }
+                    else if viewModel.imageURL == "" && !(viewModel.customKeywords.isEmpty && viewModel.recommendKeywords.isEmpty) {
+                        let data = CaptionInfo(customKeywords: captionViewModel.customKeyword, recommendKeywords: captionViewModel.firstSegmentSelected + captionViewModel.secondSegmentSelected + captionViewModel.thirdSegmentSelected, captionResult: captionViewModel.promptAnswer, isIncludeImage: false)
+                        firebaseManager.updateCaptionResult(cpationType: .keywordsOnly, Data: data.data)
+                    }
                 }
             if showAlert == true {
                 switch activeAlert {
@@ -82,21 +93,6 @@ struct CaptionResultView: View {
                 pathManager.path.append(.ErrorNetwork)
             }
         })
-        .onAppear {
-            if viewModel.imageURL != "" && !(viewModel.customKeywords.isEmpty && viewModel.recommendKeywords.isEmpty) {
-                let data = CaptionInfo(customKeywords: captionViewModel.customKeyword, recommendKeywords: viewModel.recommendKeywords, captionResult: captionViewModel.promptAnswer, isIncludeImage: true)
-                firebaseManager.updateCaptionResult(cpationType: .both, Data: data.data)
-            }
-            else if viewModel.imageURL != "" {
-                let data = ImageInfo(captionResult: viewModel.promptAnswer)
-                firebaseManager.updateCaptionResult(cpationType: .imageOnly, Data: data.data)
-            }
-            else if viewModel.imageURL == "" && !(viewModel.customKeywords.isEmpty && viewModel.recommendKeywords.isEmpty) {
-                let data = CaptionInfo(customKeywords: viewModel.customKeywords, recommendKeywords: viewModel.recommendKeywords, captionResult: viewModel.promptAnswer, isIncludeImage: false)
-                firebaseManager.updateCaptionResult(cpationType: .keywordsOnly, Data: data.data)
-            }
-            
-        }
         .navigationBarBackButtonHidden()
         .toast(toastText: "클립보드에 복사했어요", toastImgRes: Image(.copy), isShowing: $isShowingToast)
     }
