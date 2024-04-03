@@ -23,6 +23,8 @@ struct MainHistoryView: View {
     @State var historySelected = "피드 글"
     @State private var captions: [CaptionModel] = []
     @State private var hashtags: [HashtagModel] = []
+    @State private var uuidTmp = UUID()
+    @State private var captionTmp = ""
     @State private var isShowingToast = false
     @State private var isCaptionChange = false
     @State private var isCaptionLiked = false
@@ -157,7 +159,7 @@ extension MainHistoryView {
                 else {
                     VStack(spacing: 20){
                         ForEach($captions) { $item in
-                            feedHisoryDetail(uid: item.id, tag: item.category, date: convertDate(date: item.date), content: $item.caption, like: $item.like)
+                            feedHisoryDetail(uid: item.id, tag: item.category, date: convertDate(date: item.date), content: item.caption, like: $item.like)
                                 .onChange(of: item.like){ _ in
                                     saveCaptionData(_uuid: item.id, _result: item.caption, _like: item.like)
                                     if filterLike.isLiked {
@@ -228,7 +230,7 @@ extension MainHistoryView {
         }
     }
     
-    private func feedHisoryDetail(uid: UUID, tag: String, date: String, content: Binding<String>, like: Binding<Bool>) -> some View {
+    private func feedHisoryDetail(uid: UUID, tag: String, date: String, content: String, like: Binding<Bool>) -> some View {
         VStack(alignment: .leading, spacing: 16) {
             VStack(alignment: .leading, spacing: 8) {
                 HStack(spacing: 8) {
@@ -238,7 +240,7 @@ extension MainHistoryView {
                             .body2Bold(textColor: .gray4)
                 }
                 
-                Text(content.wrappedValue)
+                Text(content)
                     .body2Bold(textColor: .gray5)
             }
             
@@ -259,6 +261,9 @@ extension MainHistoryView {
                         .foregroundColor(.gray3)
                         .onTapGesture {
                             self.showModal = true
+                            //Foreach문에서 content를 임시 저장합니다.
+                            captionTmp = content
+                            uuidTmp = uid
                         }
                     
                     Spacer()
@@ -283,7 +288,7 @@ extension MainHistoryView {
                     RoundedRectangle(cornerRadius: radius1)
                         .fill(Color.gray5)
                         .onTapGesture {
-                            copyManger.copyToClipboard(copyString: content.wrappedValue)
+                            copyManger.copyToClipboard(copyString: content)
                             isShowingToast = true
                         }
                 )
@@ -301,14 +306,23 @@ extension MainHistoryView {
         .sheet(isPresented: self.$showModal) {
             ResultUpdateModalView(
                 showModal: $showModal, isChange: $isCaptionChange,
-                stringContent: content,
+                stringContent: $captionTmp,
                 resultUpdateType: .captionResult
             )
             .interactiveDismissDisabled()
         }
         .onChange(of: showModal) { _ in
-            if !showModal {
-                saveCaptionData(_uuid: uid, _result: content.wrappedValue, _like: like.wrappedValue)
+            //모달이 닫히고, 수정사항이 있고, uid가 같다면 변경
+            if !showModal && isCaptionChange && (uuidTmp == uid) {
+                saveCaptionData(_uuid: uid, _result: captionTmp, _like: like.wrappedValue)
+                
+                //저장후 데이터 초기화
+                isCaptionChange = false
+                captionTmp = ""
+                uuidTmp = UUID()
+                
+                //다시 fetch를 실행합니다.
+                fetchCaptionData()
             }
         }
     }
