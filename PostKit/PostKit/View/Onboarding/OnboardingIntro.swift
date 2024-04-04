@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import Combine
 
 struct OnboardingIntro: View {
     @ObservedObject var onboardingRouter = OnboardingRouter.shared
+    private let debouncer = PassthroughSubject<Void, Never>()
     
     var body: some View {
         VStack(alignment: .leading,spacing: 0) {
@@ -31,9 +33,11 @@ struct OnboardingIntro: View {
             Spacer()
             
             CTABtn(btnLabel: "시작", isActive: .constant(true), action: {
-                onboardingRouter.nextPage()
-                print(onboardingRouter.currentPage)
+                self.debouncer.send()
             })
+            .onReceive(debouncer.throttle(for: 1, scheduler: RunLoop.main, latest: false)) { _ in
+                onboardingRouter.nextPage()
+            }
         }
     }
 }

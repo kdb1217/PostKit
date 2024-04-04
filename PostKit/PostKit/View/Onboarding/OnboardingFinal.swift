@@ -8,14 +8,14 @@
 import SwiftUI
 import Mixpanel
 import AppTrackingTransparency
+import Combine
 
 struct OnboardingFinal: View {
     @Binding var isFirstLaunching: Bool
-    
     //Core Data 저장을 위해 가지고 나가기
     @Binding var storeName : String
-    
     @ObservedObject var onboardingRouter = OnboardingRouter.shared
+    private let debouncer = PassthroughSubject<Void, Never>()
 
     var body: some View {
         VStack(alignment:.leading,spacing: 0) {
@@ -37,9 +37,12 @@ struct OnboardingFinal: View {
             }
             Spacer()
             CTABtn(btnLabel:"확인", isActive: .constant(true), action: {
+                self.debouncer.send()
+            })
+            .onReceive(debouncer.throttle(for: 1, scheduler: RunLoop.main, latest: false)) { _ in
                 isFirstLaunching = false
                 Mixpanel.mainInstance().people.set(properties: ["Complete Onboarding": true])
-            })
+            }
         }
     }
 }
