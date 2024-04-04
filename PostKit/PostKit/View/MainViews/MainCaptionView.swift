@@ -7,16 +7,28 @@
 
 import SwiftUI
 import CoreData
+import Combine
 import Mixpanel
 
 struct MainCaptionView: View {
+    
+    init() {
+        UIButton.appearance().isMultipleTouchEnabled = false
+        UIButton.appearance().isExclusiveTouch = true
+
+        UIView.appearance().isMultipleTouchEnabled = false
+        UIView.appearance().isExclusiveTouch = true
+    }
+    
     @EnvironmentObject var pathManager: PathManager
     @ObservedObject var coinManager = CoinManager.shared
     @StateObject var storeModel = StoreModel( _storeName: "", _tone: [])
+    @State private var isButtonEnabled = true
     @State private var timeRemaining : Int = 0
+    @State private var dayChanged: Bool = false
     
     var remainingTime = "04:32" // TODO: 24시까지 남은 시간으로 변경
-    
+    private let debouncer = PassthroughSubject<Void, Never>()
     private let coreDataManager = CoreDataManager.instance
     private let hapticManger = HapticManager.instance
     private let coinMax = 10
@@ -46,8 +58,14 @@ struct MainCaptionView: View {
             }
         }
         .onAppear{
+            isButtonEnabled = true
             calcRemain()
             checkDate()
+        }
+        .onChange(of: dayChanged) { _ in
+            calcRemain()
+            checkDate()
+            dayChanged = false
         }
     }
 }
@@ -88,6 +106,8 @@ extension MainCaptionView {
         if currentDay != coinManager.date {
             coinManager.date = currentDay
             coinManager.coin = CoinManager.maximalCoin
+            dayChanged = true
+            
             traceLog("코인이 초기화 되었습니다.")
         }
     }
@@ -146,17 +166,24 @@ extension MainCaptionView {
                     
                     HStack {
                         categoryBtn(categoryImage: firstItem.imageName, categoryName: firstItem.name, for: firstItem.destination, action: {
-                            pathManager.path.append(firstItem.path)
-                            Mixpanel.mainInstance().registerSuperProperties(["Category": firstItem.name])
-                            Mixpanel.mainInstance().track(event: "Select Category")
+                            if isButtonEnabled {
+                                pathManager.path.append(firstItem.path)
+                                Mixpanel.mainInstance().registerSuperProperties(["Category": firstItem.name])
+                                Mixpanel.mainInstance().track(event: "Select Category")
+                                isButtonEnabled = false
+                                
+                            }
                         })
-                        
+
                         if secondIndex < CaptionCtgModel.count {
                             let secondItem = CaptionCtgModel[secondIndex]
                             categoryBtn(categoryImage: secondItem.imageName, categoryName: secondItem.name, for: secondItem.destination, action: {
-                                pathManager.path.append(secondItem.path)
-                                Mixpanel.mainInstance().registerSuperProperties(["Category": secondItem.name])
-                                Mixpanel.mainInstance().track(event: "Select Category")
+                                if isButtonEnabled {
+                                    pathManager.path.append(secondItem.path)
+                                    Mixpanel.mainInstance().registerSuperProperties(["Category": secondItem.name])
+                                    Mixpanel.mainInstance().track(event: "Select Category")
+                                    isButtonEnabled = false
+                                }
                             })
                         } else {
                             Spacer()

@@ -6,15 +6,15 @@
 //
 
 import SwiftUI
+import Combine
 
 struct OnboardingTone: View {
-    
     @State var isActive: Bool = false
     @State var isShowToast: Bool = false
     //Core Data 저장을 위해 가지고 나가기
     @Binding var cafeTone : [String]
-    
     @ObservedObject var onboardingRouter = OnboardingRouter.shared
+    private let debouncer = PassthroughSubject<Void, Never>()
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -39,8 +39,11 @@ struct OnboardingTone: View {
                 }
             }
             Group{
-                CTABtn(btnLabel: "다음", isActive: $isActive, action: {onboardingRouter.nextPage()})
+                CTABtn(btnLabel: "다음", isActive: $isActive, action: {self.debouncer.send()})
                 .background(Color.white)
+            }
+            .onReceive(debouncer.throttle(for: 1, scheduler: RunLoop.main, latest: false)) {_ in 
+                onboardingRouter.nextPage()
             }
             .frame(alignment: .bottom)
         }

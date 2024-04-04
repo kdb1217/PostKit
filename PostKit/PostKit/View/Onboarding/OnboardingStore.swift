@@ -7,13 +7,15 @@
 
 import SwiftUI
 import Mixpanel
+import Combine
 
 struct OnboardingStore: View {
     //Core Data 저장을 위해 가지고 나가기
     @Binding var cafeName : String
     @State private var isActive: Bool = false
-    
     @ObservedObject var onboardingRouter = OnboardingRouter.shared
+    
+    private let debouncer = PassthroughSubject<Void, Never>()
     
     var body: some View {
         VStack(spacing: 0) {
@@ -38,10 +40,14 @@ struct OnboardingStore: View {
             Spacer()
             CTABtn(btnLabel: "다음", isActive: $isActive,
                    action: {
+                self.debouncer.send()
+               
+            })
+            .onReceive(debouncer.throttle(for: 1, scheduler: RunLoop.main, latest: false)) { _ in
                 hideKeyboard()
                 Mixpanel.mainInstance().people.set(properties: ["$name": "\(cafeName)"])
                 onboardingRouter.nextPage()
-            })
+            }
         }
         .onAppear {
             if !cafeName.isEmpty {

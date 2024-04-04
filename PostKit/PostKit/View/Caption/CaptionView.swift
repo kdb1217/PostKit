@@ -55,6 +55,7 @@ extension CaptionView {
     // MARK: HeaderArea
     private var headerArea: some View {
         CustomHeader(action: {
+            captionViewModel.resetCondition()
             pathManager.path.removeLast()
         }, title: categoryName.korCategoryName)
     }
