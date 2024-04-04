@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 
 struct OnboardingIntro: View {
+    @AppStorage("userId") var userId: String?
     @ObservedObject var onboardingRouter = OnboardingRouter.shared
     private let debouncer = PassthroughSubject<Void, Never>()
     
@@ -38,6 +39,9 @@ struct OnboardingIntro: View {
             .onReceive(debouncer.throttle(for: 1, scheduler: RunLoop.main, latest: false)) { _ in
                 onboardingRouter.nextPage()
             }
+        }
+        .onAppear {
+            userId = UUID().uuidString
         }
     }
 }
