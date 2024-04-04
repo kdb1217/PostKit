@@ -5,7 +5,7 @@
 //  Created by 김다빈 on 11/1/23.
 //
 import Mixpanel
-import Foundation
+import SwiftUI
 import UIKit
 import AppTrackingTransparency
 import AdSupport
@@ -14,6 +14,7 @@ import GoogleMobileAds
 
 class AppDelegate: NSObject, UIApplicationDelegate {
 
+    @AppStorage("userId") var userId: String?
     private let firebaseManager = FirebaseManager()
     private var mixpanelKey: String?
 
@@ -25,9 +26,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             print("앱 시작")
             print(self?.mixpanelKey ?? "키 값 오류")
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 Mixpanel.initialize(token: self?.mixpanelKey ?? "믹스패널 키 오류", trackAutomaticEvents: true)
-                Mixpanel.mainInstance().identify(distinctId: UUID().uuidString)
+                Mixpanel.mainInstance().identify(distinctId: self?.userId ?? "Not Asigned")
                 Mixpanel.mainInstance().track(event: "App Open")
             }
         }

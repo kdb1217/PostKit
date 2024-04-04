@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OnboardingIntro: View {
+    @AppStorage("userId") var userId: String?
     @ObservedObject var onboardingRouter = OnboardingRouter.shared
     
     var body: some View {
@@ -34,6 +35,9 @@ struct OnboardingIntro: View {
                 onboardingRouter.nextPage()
                 print(onboardingRouter.currentPage)
             })
+        }
+        .onAppear {
+            userId = UUID().uuidString
         }
     }
 }
