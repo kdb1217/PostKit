@@ -14,6 +14,7 @@ struct MainCaptionView: View {
     @ObservedObject var coinManager = CoinManager.shared
     @StateObject var storeModel = StoreModel( _storeName: "", _tone: [])
     @State private var timeRemaining : Int = 0
+    @State private var dayChanged: Bool = false
     
     var remainingTime = "04:32" // TODO: 24시까지 남은 시간으로 변경
     
@@ -48,6 +49,11 @@ struct MainCaptionView: View {
         .onAppear{
             calcRemain()
             checkDate()
+        }
+        .onChange(of: dayChanged) { _ in
+            calcRemain()
+            checkDate()
+            dayChanged = false
         }
     }
 }
@@ -88,6 +94,8 @@ extension MainCaptionView {
         if currentDay != coinManager.date {
             coinManager.date = currentDay
             coinManager.coin = CoinManager.maximalCoin
+            dayChanged = true
+            
             traceLog("코인이 초기화 되었습니다.")
         }
     }
