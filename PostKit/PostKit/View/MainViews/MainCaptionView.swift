@@ -10,6 +10,15 @@ import CoreData
 import Mixpanel
 
 struct MainCaptionView: View {
+    
+    init() {
+        UIButton.appearance().isMultipleTouchEnabled = false
+        UIButton.appearance().isExclusiveTouch = true
+
+        UIView.appearance().isMultipleTouchEnabled = false
+        UIView.appearance().isExclusiveTouch = true
+    }
+    
     @EnvironmentObject var pathManager: PathManager
     @ObservedObject var coinManager = CoinManager.shared
     @StateObject var storeModel = StoreModel( _storeName: "", _tone: [])
