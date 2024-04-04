@@ -15,7 +15,10 @@ struct ImageWrappingHstack: View {
             HStack {
                 ForEach(ImageData.indices, id: \.self) { index in
                     ZStack {
+                        
                         Image(uiImage: ImageData[index])
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
                             .cornerRadius(radius2)
                             .frame(width: 100, height: 100)
 
