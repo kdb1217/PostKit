@@ -36,26 +36,27 @@ struct MainCaptionView: View {
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
-        ContentArea {
-            VStack(alignment: .leading, spacing: 28) {
-                HStack {
-                    Text("글 쓰기")
-                        .title1(textColor: .gray6)
+        VStack{
+            ContentArea {
+                VStack(alignment: .leading, spacing: 28) {
+                    HStack {
+                        Text("글 쓰기")
+                            .title1(textColor: .gray6)
+                        Spacer()
+                        SettingBtn(action: {pathManager.path.append(.SettingHome)})
+                    }
+                    
+                    coinArea()
+                    
+                    VStack(alignment: .leading, spacing: 52) {
+                        captionArea()
+                        //hashtagArea()
+                    }
+                    
                     Spacer()
-                    SettingBtn(action: {pathManager.path.append(.SettingHome)})
                 }
-                
-                coinArea()
-                
-                VStack(alignment: .leading, spacing: 52) {
-                    captionArea()
-                    //hashtagArea()
-                }
-                
-                Spacer()
-                
-                GoogleAdMob(type: .banner)
             }
+            GoogleAdMob(type: .banner)
         }
         .onAppear{
             isButtonEnabled = true
