@@ -8,6 +8,7 @@
 import SwiftUI
 import Mixpanel
 import Lottie
+import GoogleMobileAds
 
 struct LoadingView: View {
     @EnvironmentObject var pathManager: PathManager
@@ -15,6 +16,13 @@ struct LoadingView: View {
     @State var tagTimeStep: Int = 0
     @State var timeStep: Int = 0
     @State private var isActiveAlert: Bool = false
+    
+    private let GoogleFullAd = InterstitialAdcoordinator()
+    private let AdController = FullSizeAd()
+    var GoogleAdMobFull: some View {
+        AdController
+            .frame(width: .zero,height: .zero)
+    }
     
     //디버깅용 데이터 삭제하지는 말아주세요.
     //private var SampleData: [String] = ["1번 친구","2번 친구","3번 친구","4번 친구","5번 친구"]
@@ -67,7 +75,7 @@ struct LoadingView: View {
                 .padding(.top, 27.6)
                 .frame(width: UIScreen.main.bounds.width)
             }
-            .background(GoogleAdMob(type: .fullSize))
+            .background(GoogleAdMobFull)
             
             LottieView(jsonName: "LoadingLottie")
                 .frame(width: 200, height: 200)
@@ -92,8 +100,8 @@ struct LoadingView: View {
         
         .navigationBarBackButtonHidden()
         .onAppear {
-            InterstitialAdcoordinator().loadAd() {
-                InterstitialAdcoordinator().showAd(from: FullSizeAd().viewController)
+            GoogleFullAd.loadAd() {
+                GoogleFullAd.showAd(from: AdController.viewController)
             }
             
             Timer.scheduledTimer(withTimeInterval: 6.0, repeats: true) { timer in

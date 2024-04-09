@@ -18,7 +18,7 @@ enum AdType {
 }
 
 final class InterstitialAdcoordinator: NSObject, GADFullScreenContentDelegate {
-    private var interstitial: GADInterstitialAd?
+    var interstitial: GADInterstitialAd?
     
     override init() {
         super.init()
@@ -27,14 +27,14 @@ final class InterstitialAdcoordinator: NSObject, GADFullScreenContentDelegate {
     func loadAd(completion: @escaping () -> Void) {
         GADInterstitialAd.load(
             withAdUnitID: "ca-app-pub-6026611917778161/1299148880",
-            request: GADRequest(), completionHandler: { [self] ad, error in
+            request: GADRequest(), completionHandler: { ad, error in
                 if let error = error {
                     traceLog("Failed to load interstitial ad: \(error.localizedDescription)")
                     return
                 }
                 traceLog("🟢: FullAd Loading succeeded")
-                interstitial = ad
-                interstitial?.fullScreenContentDelegate = self
+                self.interstitial = ad
+                self.interstitial?.fullScreenContentDelegate = self
                 completion()
             })
     }
@@ -58,7 +58,7 @@ final class InterstitialAdcoordinator: NSObject, GADFullScreenContentDelegate {
             return
         }
         traceLog(viewController)
-        interstitial.present(fromRootViewController: FullSizeAd().viewController)
+        interstitial.present(fromRootViewController: viewController)
     }
 }
 
