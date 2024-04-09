@@ -935,7 +935,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PostKit/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_CFBundleDisplayName = PostKit;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Gpt가 이미지를 이용하기 위해서 사진첩에 접근합니다.";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "사용자에게 맞춤 광고를 표시하기 위해 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -978,7 +979,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PostKit/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_CFBundleDisplayName = PostKit;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Gpt가 이미지를 이용하기 위해서 사진첩에 접근합니다.";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "사용자에게 맞춤 광고를 표시하기 위해 사용합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
