@@ -217,6 +217,7 @@ class CaptionViewModel: ObservableObject {
     func resetCondition() {
         isCaptionSuccess = false
         errorCode = 0
+        textLength = 200
         selectedImage = []
         firstSegmentSelected = []
         secondSegmentSelected = []
