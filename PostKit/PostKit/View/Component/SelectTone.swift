@@ -59,6 +59,8 @@ extension SelectTone {
                     }
                     Text(conceptExample)
                         .body2Bold(textColor: .gray4)
+                        .lineLimit(1)
+                        .truncationMode(.tail)
                 }
                 Spacer()
             }
