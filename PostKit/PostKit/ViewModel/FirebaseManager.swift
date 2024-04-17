@@ -29,7 +29,6 @@ class FirebaseManager {
             }
         }
     }
-    // TODO: 배포용에서는 collection이름을 "CaptionResultrelease"로 바꿔야 합니다
     func updateCaptionResult(cpationType: captionType, Data: Dictionary<String, Any>) {
         let postDocs = db.collection("CaptionResult").document("Type").collection(cpationType.type).document()
         postDocs.setData(Data)

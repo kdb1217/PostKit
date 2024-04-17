@@ -10,14 +10,13 @@ struct SelectTone: View {
     @Binding var selectedTones: [String]
     @Binding var isShowToast: Bool
     
-    //TODO: 임시데이터라 데이터 변경이 필요합니다
     let tones: [Tone] = [
-        Tone(tone: "친절한", toneExample: "에스프레소와 부드러운 우유가 조화롭게 어우러져요.", isBest: true),
-        Tone(tone: "감성적인", toneExample: "바쁜 일상 속 작은 여유를 선사하는 부드러운 맛이에요.", isBest: true),
-        Tone(tone: "논리적인", toneExample: "깊고 진한 에스프레소와 부드러운 우유의 조화를 경험하세요.", isBest: false),
-        Tone(tone: "간단한", toneExample: "부드러운 풍미의 카페라떼에요.", isBest: false),
-        Tone(tone: "애교있는", toneExample: "부드러운 풍미의 카페라떼가 여러분을 기다리고 있어요.", isBest: false),
-        Tone(tone: "재치있는", toneExample: "입 안 가득 부드러운 풍미에 눈이 번쩍 떠질지도 몰라요!", isBest: false)
+        Tone(tone: "친절한", toneExample: "오늘은 행복한 하루 되세요! 😊", isBest: true),
+        Tone(tone: "감성적인", toneExample: "가을 바람에 흩날리는 낙엽 소리가 마음을 울려요. 🍂", isBest: true),
+        Tone(tone: "논리적인", toneExample: "운동은 건강에 매우 중요하다고 합니다.", isBest: false),
+        Tone(tone: "간단한", toneExample: "햇살 가득한 날, 책과 차 한잔으로 힐링하기 좋아요.", isBest: false),
+        Tone(tone: "애교있는", toneExample: "함께하는 시간이 너무 즐거워요.💕", isBest: false),
+        Tone(tone: "재치있는", toneExample: "인생도 가끔은 예상치 못한 상황에 대비해야 해요. 😄☔️", isBest: false)
     ]
     
     var body: some View {
@@ -60,6 +59,8 @@ extension SelectTone {
                     }
                     Text(conceptExample)
                         .body2Bold(textColor: .gray4)
+                        .lineLimit(1)
+                        .truncationMode(.tail)
                 }
                 Spacer()
             }

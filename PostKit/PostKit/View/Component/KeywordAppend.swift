@@ -74,8 +74,6 @@ struct KeywordAppend: View {
                 
             }
             
-            ImageWrappingHstack(ImageData: $selectedImage)
-            
             if !(selectedImage == nil) && !(selectedImage.count == 1) {
                 Button(action: {
                     requestPHPhotoLibraryAuthorization{
@@ -96,6 +94,8 @@ struct KeywordAppend: View {
                     .background(Color.gray1)
                     .background(in: RoundedRectangle(cornerRadius: radius1))
                 })
+            } else {
+                ImageWrappingHstack(ImageData: $selectedImage)
             }
         }
     }

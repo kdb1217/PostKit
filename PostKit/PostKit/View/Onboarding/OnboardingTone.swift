@@ -35,6 +35,7 @@ struct OnboardingTone: View {
                                     isActiveCheck()
                                 }
                         }
+                        .padding(.bottom, 12)
                     }
                 }
             }
