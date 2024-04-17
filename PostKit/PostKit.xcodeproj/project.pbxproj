@@ -931,7 +931,7 @@
 				CODE_SIGN_ENTITLEMENTS = PostKit/PostKitDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"PostKit/Preview Content\"";
 				DEVELOPMENT_TEAM = F5LF3NUCU2;
 				ENABLE_PREVIEWS = YES;
@@ -975,7 +975,7 @@
 				CODE_SIGN_ENTITLEMENTS = PostKit/PostKit.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"PostKit/Preview Content\"";
 				DEVELOPMENT_TEAM = F5LF3NUCU2;
 				ENABLE_PREVIEWS = YES;
