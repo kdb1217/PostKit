@@ -30,7 +30,7 @@ class FirebaseManager {
         }
     }
     func updateCaptionResult(cpationType: captionType, Data: Dictionary<String, Any>) {
-        let postDocs = db.collection("CaptionResult").document("Type").collection(cpationType.type).document()
+        let postDocs = db.collection("CaptionResultrelease").document("Type").collection(cpationType.type).document()
         postDocs.setData(Data)
     }
     
