@@ -15,10 +15,7 @@ enum ActiveAlert {
     case first, second
 }
 
-enum CaptionMode {
-    case daily
-    case menu
-}
+
 struct CaptionResultView: View {
     @EnvironmentObject var pathManager: PathManager
     @State private var copyId = UUID()
@@ -38,8 +35,6 @@ struct CaptionResultView: View {
     private let hapticManger = HapticManager.instance
     private let copyManager = CopyManger.instance
     
-    var captionMode: CaptionMode = .daily
-    
     //CoreData Manager
     let coreDataManager = CoreDataManager.instance
     
@@ -55,15 +50,15 @@ struct CaptionResultView: View {
                     //수정을 위해 UUID를 저장
                     copyId = saveCaptionResult(category: captionViewModel.categoryName, date: convertDayTime(time: Date()), result: captionViewModel.promptAnswer,like: likeCopy)
                     trackingResult()
-                    if viewModel.imageURL != "" && !(viewModel.customKeywords.isEmpty && viewModel.recommendKeywords.isEmpty) {
+                    if !captionViewModel.selectedImage.isEmpty && !(captionViewModel.customKeyword.isEmpty && captionViewModel.selectedKeywords.isEmpty) {
                         let data = CaptionInfo(customKeywords: captionViewModel.customKeyword, recommendKeywords: captionViewModel.firstSegmentSelected + captionViewModel.secondSegmentSelected + captionViewModel.thirdSegmentSelected, captionResult: captionViewModel.promptAnswer, isIncludeImage: true)
                         firebaseManager.updateCaptionResult(cpationType: .both, Data: data.data)
                     }
-                    else if viewModel.imageURL != "" {
+                    else if !captionViewModel.selectedImage.isEmpty {
                         let data = ImageInfo(captionResult: captionViewModel.promptAnswer)
                         firebaseManager.updateCaptionResult(cpationType: .imageOnly, Data: data.data)
                     }
-                    else if viewModel.imageURL == "" && !(viewModel.customKeywords.isEmpty && viewModel.recommendKeywords.isEmpty) {
+                    else if captionViewModel.selectedImage.isEmpty && !(captionViewModel.customKeyword.isEmpty && captionViewModel.selectedKeywords.isEmpty) {
                         let data = CaptionInfo(customKeywords: captionViewModel.customKeyword, recommendKeywords: captionViewModel.firstSegmentSelected + captionViewModel.secondSegmentSelected + captionViewModel.thirdSegmentSelected, captionResult: captionViewModel.promptAnswer, isIncludeImage: false)
                         firebaseManager.updateCaptionResult(cpationType: .keywordsOnly, Data: data.data)
                     }
