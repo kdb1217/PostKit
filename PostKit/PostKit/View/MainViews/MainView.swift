@@ -86,6 +86,18 @@ struct MainView: View {
                             CaptionView(storeModel: storeModel, categoryName: categoryType.fashion)
                         case .Hair:
                             CaptionView(storeModel: storeModel, categoryName: categoryType.hair)
+                        case .Restaurant:
+                            CaptionView(storeModel: storeModel, categoryName: categoryType.restaurant)
+                        case .NailSalon:
+                            CaptionView(storeModel: storeModel, categoryName: categoryType.nailSalon)
+                        case .Gym:
+                            CaptionView(storeModel: storeModel, categoryName: categoryType.gym)
+                        case .Cosmetics:
+                            CaptionView(storeModel: storeModel, categoryName: categoryType.cosmetics)
+                        case .Flower:
+                            CaptionView(storeModel: storeModel, categoryName: categoryType.flower)
+                        case .Studio:
+                            CaptionView(storeModel: storeModel, categoryName: categoryType.studio)
                         case .SettingHome:
                             SettingView(storeModel: storeModel)
                         case .SettingStore:

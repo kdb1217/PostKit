@@ -73,6 +73,19 @@ struct KeywordModal: View {
                     getFireBaseArray(keywordType: "HairKeywords", firstSegmentName: "Section1", secondSegmentName: "Section2", thirdSegmentName: "Section3")
                 case .browShop:
                     getFireBaseArray(keywordType: "BrowKeywords", firstSegmentName: "Section1", secondSegmentName: "Section2", thirdSegmentName: "Section3")
+                //MARK: FireBase Data 연결해야함
+                case .restaurant:
+                    getFireBaseArray(keywordType: "BrowKeywords", firstSegmentName: "Section1", secondSegmentName: "Section2", thirdSegmentName: "Section3")
+                case .nailSalon:
+                    getFireBaseArray(keywordType: "BrowKeywords", firstSegmentName: "Section1", secondSegmentName: "Section2", thirdSegmentName: "Section3")
+                case .gym:
+                    getFireBaseArray(keywordType: "BrowKeywords", firstSegmentName: "Section1", secondSegmentName: "Section2", thirdSegmentName: "Section3")
+                case .cosmetics:
+                    getFireBaseArray(keywordType: "BrowKeywords", firstSegmentName: "Section1", secondSegmentName: "Section2", thirdSegmentName: "Section3")
+                case .flower:
+                    getFireBaseArray(keywordType: "BrowKeywords", firstSegmentName: "Section1", secondSegmentName: "Section2", thirdSegmentName: "Section3")
+                case .studio:
+                    getFireBaseArray(keywordType: "BrowKeywords", firstSegmentName: "Section1", secondSegmentName: "Section2", thirdSegmentName: "Section3")
                 }
                 print(captionViewModel.firstSegmentSelected)
             }
