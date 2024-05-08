@@ -75,8 +75,8 @@ extension MainCaptionView {
     func convertSecondsToTime(timeInSeconds: Int) -> String {
         let hours = timeInSeconds / 3600
         let minutes = (timeInSeconds - hours * 3600) / 60
-        let seconds = timeInSeconds % 60
-        return String(format: "%02i:%02i:%02i", hours, minutes, seconds)
+        //let seconds = timeInSeconds % 60
+        return String(format: "%02i시간 %02i분", hours, minutes)
     }
     
     func calcRemain() {
@@ -142,7 +142,7 @@ extension MainCaptionView {
                         timeRemaining -= 1
                         checkDate()
                     }
-                    .frame(width: 60) // 숫자가 바뀌며 무료 충전 텍스트의 위치가 바뀌어서 임의의 값을 지정해두었습니다.
+                    .frame(width: 80) // 숫자가 바뀌며 무료 충전 텍스트의 위치가 바뀌어서 임의의 값을 지정해두었습니다.
             }
         }
     }
@@ -227,8 +227,12 @@ extension MainCaptionView {
             }
             .padding(20)
             .frame(maxWidth: .infinity)
-            .background(Color.sub)
+            .background(Color.gray1)
             .cornerRadius(radius1)
+            .overlay(
+                    RoundedRectangle(cornerRadius: radius1)
+                        .stroke(Color.gray2, lineWidth: 1)
+                )
         }
     }
     
