@@ -227,8 +227,12 @@ extension MainCaptionView {
             }
             .padding(20)
             .frame(maxWidth: .infinity)
-            .background(Color.sub)
+            .background(Color.gray1)
             .cornerRadius(radius1)
+            .overlay(
+                    RoundedRectangle(cornerRadius: radius1)
+                        .stroke(Color.gray2, lineWidth: 1)
+                )
         }
     }
     
