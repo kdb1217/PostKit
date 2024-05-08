@@ -125,17 +125,17 @@ public enum categoryType: String, CaseIterable{
         case .browShop:
             return ["특징", "스타일", "일상"]
         case .restaurant:
-            return ["음료", "디저트", "일상"]
+            return ["분위기", "형식", "일상"]
         case .nailSalon:
-            return ["음료", "디저트", "일상"]
+            return ["특징", "종류", "일상"]
         case .gym:
-            return ["음료", "디저트", "일상"]
+            return ["특징", "목적", "일상"]
         case .cosmetics:
-            return ["음료", "디저트", "일상"]
+            return ["특징", "종류", "일상"]
         case .flower:
-            return ["음료", "디저트", "일상"]
+            return ["기념일", "종류", "일상"]
         case .studio:
-            return ["음료", "디저트", "일상"]
+            return ["컨셉, 분위기", "종류", "일상"]
         }
     }
 }
