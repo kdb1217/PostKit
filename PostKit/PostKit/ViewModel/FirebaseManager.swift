@@ -25,7 +25,7 @@ class FirebaseManager {
                 let APIKey = document[apiName] as? String ?? "nil"
                 completion(APIKey)
             } else {
-                print("Document Error")
+                traceLog("Document Error")
             }
         }
     }
@@ -42,7 +42,7 @@ class FirebaseManager {
                 let keyWords = document[keyWordName] as? [String] ?? []
                 completion(keyWords)
             } else {
-                print("Document Error")
+                traceLog("Document Error")
             }
         }
     }

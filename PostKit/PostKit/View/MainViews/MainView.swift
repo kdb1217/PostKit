@@ -176,11 +176,11 @@ extension MainView {
     private func fetchUpdate() {
         remoteConfig.fetch(withExpirationDuration: TimeInterval(60)) { (status, error) -> Void in
             if status == .success {
-                print("Config fetched!")
+                traceLog("Config fetched!")
                 remoteConfig.fetchAndActivate()
             } else {
-                print("Config not fethed")
-                print("Error: \(error?.localizedDescription ?? "No error availabe.")")
+                traceLog("Config not fethed")
+                traceLog("Error: \(error?.localizedDescription ?? "No error availabe.")")
             }
         }
     }
