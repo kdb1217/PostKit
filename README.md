@@ -1,4 +1,3 @@
-# PostKit
 ## 쉽고 빠른 마케팅 글쓰기, 포스트킷
 <div align="center">
 <img width = "300" src="https://github.com/ADA-RLD/PostKit/assets/84852135/d8a27b4b-2ac9-4806-ab1e-c181c908d2df">
@@ -10,7 +9,7 @@
 </div>
 <br>
 
-## 📑 App Introduction
+### 📑 App Introduction
 
   PostKit은 쉽고 빠른 마케팅 글쓰기를 도와주는 앱입니다.
 
@@ -29,16 +28,22 @@
 <br>
   
 
- ### 📱 Screenshots
-||||
-|:-:|:-:|:-:|
-|![ ](https://github.com/ADA-RLD/PostKit/assets/84852135/58ec58d3-c6cb-488c-be88-e340d49bad58)|![](https://github.com/ADA-RLD/PostKit/assets/84852135/6b3fa711-cfe1-40ef-985c-f957f2f1d5db)|![](https://github.com/ADA-RLD/PostKit/assets/84852135/515d9570-e8aa-4f55-a70f-ff8c1c001953)|
-|||
-|![](https://github.com/ADA-RLD/PostKit/assets/84852135/8f4a98a6-efa9-4186-8ed3-31ae055d6292)|![](https://github.com/ADA-RLD/PostKit/assets/84852135/5a6b8faf-8ad1-4438-8332-f6f7c78da045)
+### 📱 Screenshots
+<table>
+  <tr>
+    <td><img src="https://github.com/ADA-RLD/PostKit/assets/84852135/58ec58d3-c6cb-488c-be88-e340d49bad58" width="200px" /></td>
+    <td><img src="https://github.com/ADA-RLD/PostKit/assets/84852135/6b3fa711-cfe1-40ef-985c-f957f2f1d5db" width="200px" /></td>
+    <td><img src="https://github.com/ADA-RLD/PostKit/assets/84852135/515d9570-e8aa-4f55-a70f-ff8c1c001953" width="200px" /></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/ADA-RLD/PostKit/assets/84852135/8f4a98a6-efa9-4186-8ed3-31ae055d6292" width="200px" /></td>
+    <td><img src="https://github.com/ADA-RLD/PostKit/assets/84852135/5a6b8faf-8ad1-4438-8332-f6f7c78da045" width="200px" /></td>
+  </tr>
+</table>
 
 <br>
 
-## 👩‍💻🧑‍💻 Authors
+### 👩‍💻🧑‍💻 Authors
 
 |[<img src="https://github.com/Padoari.png" width="100px">](https://github.com/Padoari)|[<img src="https://github.com/up-ub.png" width="100px">](https://github.com/up-ub)|[<img src="https://github.com/seoyeon-1206.png" width="100px">](https://github.com/seoyeon-1206)|[<img src="https://github.com/whaeundo25.png" width="100px">](https://github.com/whaeundo25)|[<img src="https://github.com/HIBAR97.png" width="100px">](https://github.com/HIBAR97)|[<img src="https://github.com/kdb1217.png" width="100px">](https://github.com/kdb1217)|  
 |:----:|:----:|:----:|:----:|:----:|:----:|
