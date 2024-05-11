@@ -175,7 +175,9 @@ extension MainCaptionView {
                                 
                             }
                         })
-
+                        
+                        Spacer().frame(width: 12)
+                    
                         if secondIndex < CaptionCtgModel.count {
                             let secondItem = CaptionCtgModel[secondIndex]
                             categoryBtn(categoryImage: secondItem.imageName, categoryName: secondItem.name, for: secondItem.destination, action: {
