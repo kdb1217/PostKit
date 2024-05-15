@@ -165,7 +165,7 @@ extension MainCaptionView {
                     let firstItem = CaptionCtgModel[index * 2]
                     let secondIndex = index * 2 + 1
                     
-                    HStack {
+                    HStack(spacing: 12) {
                         categoryBtn(categoryImage: firstItem.imageName, categoryName: firstItem.name, for: firstItem.destination, action: {
                             if isButtonEnabled {
                                 pathManager.path.append(firstItem.path)
@@ -175,8 +175,6 @@ extension MainCaptionView {
                                 
                             }
                         })
-                        
-                        Spacer().frame(width: 12)
                     
                         if secondIndex < CaptionCtgModel.count {
                             let secondItem = CaptionCtgModel[secondIndex]
