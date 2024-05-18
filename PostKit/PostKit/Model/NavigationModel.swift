@@ -9,10 +9,16 @@ import Foundation
 
 
 public enum StackViewType {
+    case Restaurant
     case Cafe
+    case NailSalon
     case BrowShop
-    case Fashion
     case Hair
+    case Gym
+    case Fashion
+    case Cosmetics
+    case Flower
+    case Studio
     case SettingHome
     case SettingStore
     case SettingTone

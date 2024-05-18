@@ -52,13 +52,21 @@ public enum captionLength: Int, CaseIterable {
 }
 
 public enum categoryType: String, CaseIterable{
+    case restaurant
     case cafe
-    case fashion
-    case hair
+    case nailSalon
     case browShop
+    case hair
+    case gym
+    case fashion
+    case cosmetics
+    case flower
+    case studio
     
     var korCategoryName: String {
         switch self {
+        case .restaurant:
+            return "음식점"
         case .cafe:
             return "카페"
         case .fashion:
@@ -67,6 +75,16 @@ public enum categoryType: String, CaseIterable{
             return "헤어"
         case .browShop:
             return "브로우샵"
+        case .nailSalon:
+            return "네일샵"
+        case .gym:
+            return "헬스장"
+        case .cosmetics:
+            return "화장품"
+        case .flower:
+            return "꽃집"
+        case .studio:
+            return "사진관"
         }
     }
     
@@ -80,6 +98,18 @@ public enum categoryType: String, CaseIterable{
             return "히피펌"
         case .browShop:
             return "속눈썹 연장"
+        case .restaurant:
+            return "한식"
+        case .nailSalon:
+            return "젤네일"
+        case .gym:
+            return "PT"
+        case .cosmetics:
+            return "틴트"
+        case .flower:
+            return "장미"
+        case .studio:
+            return "프로필 사진"
         }
     }
     
@@ -94,14 +124,35 @@ public enum categoryType: String, CaseIterable{
             return ["느낌", "스타일", "날씨"]
         case .browShop:
             return ["특징", "스타일", "일상"]
+        case .restaurant:
+            return ["특징", "종류", "일상"]
+        case .nailSalon:
+            return ["특징", "종류", "일상"]
+        case .gym:
+            return ["특징", "종류", "일상"]
+        case .cosmetics:
+            return ["특징", "종류", "일상"]
+        case .flower:
+            return ["특징", "종류", "일상"]
+        case .studio:
+            return ["특징", "종류", "일상"]
         }
     }
 }
 
-//MARK: 이미지 리소스 필요
 public var CaptionCtgModel: [(imageName: String, name: String, destination: categoryType, path: StackViewType)] = [
+    ("Restaurant", "음식점", categoryType.cafe, .Cafe),
     ("Cafe", "카페", categoryType.cafe, .Cafe),
+    
+    ("Nail_Salon", "네일샵", categoryType.cafe, .Cafe),
+    ("Brow_Shop", "브로우샵", categoryType.browShop, .BrowShop),
+    
+    ("Hair_Shop", "헤어", categoryType.hair, .Hair),
+    ("Gym", "헬스장", categoryType.fashion, .Fashion),
+    
     ("Fashion", "패션", categoryType.fashion, .Fashion),
-    ("Hair", "헤어", categoryType.hair, .Hair),
-    ("Brow", "브로우샵", categoryType.browShop, .BrowShop)
+    ("Cosmetics", "화장품", categoryType.fashion, .Fashion),
+    
+    ("Flower", "꽃집", categoryType.fashion, .Fashion),
+    ("Studio", "사진관", categoryType.fashion, .Fashion)
 ]
