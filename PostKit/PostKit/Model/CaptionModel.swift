@@ -141,18 +141,18 @@ public enum categoryType: String, CaseIterable{
 }
 
 public var CaptionCtgModel: [(imageName: String, name: String, destination: categoryType, path: StackViewType)] = [
-    ("Restaurant", "음식점", categoryType.cafe, .Cafe),
+    ("Restaurant", "음식점", categoryType.cafe, .Restaurant),
     ("Cafe", "카페", categoryType.cafe, .Cafe),
     
-    ("Nail_Salon", "네일샵", categoryType.cafe, .Cafe),
+    ("Nail_Salon", "네일샵", categoryType.cafe, .NailSalon),
     ("Brow_Shop", "브로우샵", categoryType.browShop, .BrowShop),
     
     ("Hair_Shop", "헤어", categoryType.hair, .Hair),
-    ("Gym", "헬스장", categoryType.fashion, .Fashion),
+    ("Gym", "헬스장", categoryType.fashion, .Gym),
     
     ("Fashion", "패션", categoryType.fashion, .Fashion),
-    ("Cosmetics", "화장품", categoryType.fashion, .Fashion),
+    ("Cosmetics", "화장품", categoryType.fashion, .Cosmetics),
     
-    ("Flower", "꽃집", categoryType.fashion, .Fashion),
-    ("Studio", "사진관", categoryType.fashion, .Fashion)
+    ("Flower", "꽃집", categoryType.fashion, .Flower),
+    ("Studio", "사진관", categoryType.fashion, .Studio)
 ]
