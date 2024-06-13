@@ -21,7 +21,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func getRandomKey() {
         // 개발용 "mixpanelDev"
         // 배포용 "mixpanelRelease"
-        let chatGptAPIKey = firebaseManager.getDoucument(apiName: "mixpanelDev") { [weak self] (key) in
+        let chatGptAPIKey = firebaseManager.getDoucument(apiName: "mixpanelRelease") { [weak self] (key) in
             self?.mixpanelKey = key
             traceLog("앱 시작")
             traceLog(self?.mixpanelKey ?? "키 값 오류")
