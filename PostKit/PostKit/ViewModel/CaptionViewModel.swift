@@ -242,6 +242,7 @@ class CaptionViewModel: ObservableObject {
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case.failure(let error):
+                    self.isError = true
                     print("실패")
                     if error._code == 10 {
                             self.errorCode = 10
