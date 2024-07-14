@@ -17,6 +17,7 @@ enum ErrorReason {
 struct ErrorView: View {
     @EnvironmentObject var pathManager: PathManager
     @ObservedObject var viewModel = ChatGptViewModel.shared
+    @ObservedObject var captionViewModel = CaptionViewModel.shared
     @ObservedObject var coinManager = CoinManager.shared
     @ObservedObject var loadingModel = LoadingViewModel.shared
     
@@ -52,8 +53,11 @@ struct ErrorView: View {
                         Mixpanel.mainInstance().track(event: "Regenerate", properties: ["State": "Network Error"])
                     }
                     pathManager.path.append(.Loading)
+                    captionViewModel.isError = false
+                    
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.8) {
                         regenerateAnswer()
+                        
                     }
                 },
                 bottomAction: {pathManager.path.removeAll()})

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1321B7592BBBF27600EF69BF /* Ex+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1321B7582BBBF27600EF69BF /* Ex+View.swift */; };
+		132D2CC22C43C0FD00EA705D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 132D2CC12C43C0FD00EA705D /* GoogleService-Info.plist */; };
 		1336DE5B2AF8D63B000A6D9A /* MainHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336DE5A2AF8D63B000A6D9A /* MainHistoryView.swift */; };
 		1336DE5D2AF8DF81000A6D9A /* MainCaptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336DE5C2AF8DF81000A6D9A /* MainCaptionView.swift */; };
 		1336DE642AFA9630000A6D9A /* Ex+ATTrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1336DE632AFA9630000A6D9A /* Ex+ATTrackingManager.swift */; };
@@ -47,6 +48,7 @@
 		139B2C8D2AEF42390036BD18 /* HapticManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B2C8C2AEF42390036BD18 /* HapticManger.swift */; };
 		139B2C8F2AF0B6030036BD18 /* Ex+UINaivgationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B2C8E2AF0B6030036BD18 /* Ex+UINaivgationController.swift */; };
 		139B2C932AF23D690036BD18 /* CoinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139B2C922AF23D680036BD18 /* CoinManager.swift */; };
+		13B6F99A2C43C5FE000BFD3A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 13B6F9992C43C5FE000BFD3A /* Lottie */; };
 		13BDD1502B88E07F0030AB02 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDD14F2B88E07F0030AB02 /* APIManager.swift */; };
 		13BDD1542B89DB790030AB02 /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDD1532B89DB790030AB02 /* APIModel.swift */; };
 		13C295B12AD55F2100A2DE7F /* PostKitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C295B02AD55F2100A2DE7F /* PostKitApp.swift */; };
@@ -134,6 +136,7 @@
 
 /* Begin PBXFileReference section */
 		1321B7582BBBF27600EF69BF /* Ex+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+View.swift"; sourceTree = "<group>"; };
+		132D2CC12C43C0FD00EA705D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1336DE5A2AF8D63B000A6D9A /* MainHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHistoryView.swift; sourceTree = "<group>"; };
 		1336DE5C2AF8DF81000A6D9A /* MainCaptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCaptionView.swift; sourceTree = "<group>"; };
 		1336DE632AFA9630000A6D9A /* Ex+ATTrackingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+ATTrackingManager.swift"; sourceTree = "<group>"; };
@@ -253,6 +256,7 @@
 				13819ECB2B03028E005E5D91 /* FirebaseDynamicLinks in Frameworks */,
 				13819EC52B03028E005E5D91 /* FirebaseCrashlytics in Frameworks */,
 				13819EDD2B03028E005E5D91 /* FirebaseMLModelDownloader in Frameworks */,
+				13B6F99A2C43C5FE000BFD3A /* Lottie in Frameworks */,
 				13819EC92B03028E005E5D91 /* FirebaseDatabaseSwift in Frameworks */,
 				A1FD67042BA921BE00487430 /* GoogleMobileAds in Frameworks */,
 				13819ECD2B03028E005E5D91 /* FirebaseFirestore in Frameworks */,
@@ -301,6 +305,7 @@
 			children = (
 				A1C665422BC7DD8E00EC8CD0 /* PrivacyInfo.xcprivacy */,
 				A1EB633B2C1406ED00B63F9C /* GoogleService-Info.plist */,
+				132D2CC12C43C0FD00EA705D /* GoogleService-Info.plist */,
 				13C295AF2AD55F2100A2DE7F /* PostKit */,
 				13C295AE2AD55F2100A2DE7F /* Products */,
 				D2EED1AA8014945B0B79CFF3 /* Pods */,
@@ -602,6 +607,7 @@
 				13819EE62B03028E005E5D91 /* FirebaseStorage */,
 				13819EE82B03028E005E5D91 /* FirebaseStorageCombine-Community */,
 				A1FD67032BA921BE00487430 /* GoogleMobileAds */,
+				13B6F9992C43C5FE000BFD3A /* Lottie */,
 			);
 			productName = PostKit;
 			productReference = 13C295AD2AD55F2100A2DE7F /* PostKit.app */;
@@ -636,6 +642,7 @@
 				13ECB5052AF28C1B0046E6BE /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
 				13819EB32B03028E005E5D91 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				A1FD67022BA921BE00487430 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				13B6F9982C43C5FE000BFD3A /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 13C295AE2AD55F2100A2DE7F /* Products */;
 			projectDirPath = "";
@@ -651,6 +658,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				132D2CC22C43C0FD00EA705D /* GoogleService-Info.plist in Resources */,
 				A1EB633C2C1406ED00B63F9C /* GoogleService-Info.plist in Resources */,
 				13C295F52AD7136E00A2DE7F /* Pretendard-Bold.otf in Resources */,
 				13C295B82AD55F2200A2DE7F /* Preview Assets.xcassets in Resources */,
@@ -1041,12 +1049,20 @@
 				minimumVersion = 10.17.0;
 			};
 		};
+		13B6F9982C43C5FE000BFD3A /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
 		13ECB5052AF28C1B0046E6BE /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mixpanel/mixpanel-swift";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
 			};
 		};
 		A1FD67022BA921BE00487430 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
@@ -1194,6 +1210,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 13819EB32B03028E005E5D91 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		13B6F9992C43C5FE000BFD3A /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 13B6F9982C43C5FE000BFD3A /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 		13ECB5062AF28C1B0046E6BE /* Mixpanel */ = {
 			isa = XCSwiftPackageProductDependency;

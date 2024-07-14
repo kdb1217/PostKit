@@ -18,6 +18,7 @@ class CaptionViewModel: ObservableObject {
     @Published var coinAlert: Bool = false
     @Published var selectedKeywords: [String] = []
     @Published var isCaptionSuccess: Bool = false
+    @Published var isError: Bool = false
     @Published var errorCode: Int = 0
     @Published var firstSegmentSelected: [String] = []
     @Published var secondSegmentSelected: [String] = []
@@ -215,6 +216,7 @@ class CaptionViewModel: ObservableObject {
     }
     
     func resetCondition() {
+        isError = false
         isCaptionSuccess = false
         errorCode = 0
         textLength = 200
@@ -275,6 +277,7 @@ class CaptionViewModel: ObservableObject {
                             self.errorCode = 10
                     } else if error._code == 13 {
                             self.errorCode = 13
+                        self.isError = true
                     }
                 }
                 
