@@ -111,12 +111,14 @@ extension CaptionView {
         }
         .onReceive(captionViewModel.$isCaptionSuccess, perform: { _ in
             print(captionViewModel.isCaptionSuccess)
-            if captionViewModel.isCaptionSuccess == true {
+            if captionViewModel.isCaptionSuccess == true && !captionViewModel.isError {
                 DispatchQueue.main.async {
                     loadingModel.isCaptionGenerate = false
                     pathManager.path.append(.CaptionResult)
                     coinManager.coinCaptionUse()
                 }
+            } else if captionViewModel.isError == true {
+                pathManager.path.append(.ErrorResultFailed)
             }
         })
         .onReceive(captionViewModel.$errorCode, perform: { _ in
